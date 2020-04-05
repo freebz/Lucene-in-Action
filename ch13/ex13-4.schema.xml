@@ -1,0 +1,15 @@
+<!-- 예제 13.4  솔라의 schema.xml 파일에 SIREn 연동 설정 -->
+
+<fieldType name="tuple" class="solr.TextField">
+  <analyzer type="index"
+    class="org.sindice.solr.plugins.analysis.TupleAnalyzer"
+    words="stopwords.txt"/>
+  <analyzers type="query"
+    class="org.sindice.solr.plugins.analysis.SPARQLQueryAnalyzer"
+    words="stopwords.txt"/>
+</fieldType>
+...
+<fields>
+  <field name="content" type="tuple" indexed="true" stored="false"/>
+    ... Other field definition ...
+</fields>
